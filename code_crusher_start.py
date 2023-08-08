@@ -12,6 +12,12 @@ import sys
 import traceback
 import os
 
+def createBoard(rows, columns, numberOfSimbols):
+  bidimensional_list = [[] for i in range(rows)]
+  for i in range(len(bidimensional_list)):
+    bidimensional_list[i].extend([randrange(0, numberOfSimbols) for i in range(columns)])
+  return bidimensional_list
+
 # Where is the 'hole' for the game board in the background image?
 HOFF = 200
 VOFF = 100
@@ -1678,7 +1684,6 @@ def drawStatus(score, score_width, target_score, turns_left):
     text(SCORE_X, SCORE_Y - 41 + 22 + 36, "%06d" % target_score, "c")
     text(SCORE_X, SCORE_Y - 41 + 100 + 22, "Turns:", "c")
     text(SCORE_X, SCORE_Y - 41 + 100 + 22 + 36, "%d" % turns_left, "c")
-
 
 def main():
   if os.path.isfile("sprites.gif") == False:
