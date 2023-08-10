@@ -13,13 +13,6 @@ import traceback
 import os
 
 
-def createBoard(rows, columns, numberOfSimbols):
-    bidimensional_list = [[] for i in range(rows)]
-    for i in range(len(bidimensional_list)):
-        bidimensional_list[i].extend([randrange(0, numberOfSimbols) for i in range(columns)])
-    return bidimensional_list
-
-
 # Where is the 'hole' for the game board in the background image?
 HOFF = 200
 VOFF = 100
@@ -47,6 +40,11 @@ LOSE = -1
 #
 #  Insert your implementation of createBoard here
 #
+def createBoard(rows, columns, numberOfSimbols):
+    bidimensional_list = [[] for i in range(rows)]
+    for i in range(len(bidimensional_list)):
+        bidimensional_list[i].extend([randrange(0, numberOfSimbols) for i in range(columns)])
+    return bidimensional_list
 
 #
 #  Modify the board by swapping two pieces.
