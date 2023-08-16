@@ -142,7 +142,18 @@ def hLineAt(board, r1, c1):
 #           is possible then -1, -1, -1, -1 is returned.
 #
 def hint(board):
-    return -1, -1, -1, -1
+
+  for r in range(len(board)):
+    for c in range(len(board[0]) - 1):
+      if canSwap(board, r, c, r, c + 1):
+        return r, c, r, c + 1
+
+  for r in range(len(board) - 1):
+    for c in range(len(board[0])):
+      if canSwap(board, r, c, r + 1, c):
+        return r, c, r + 1, c
+
+  return -1, -1, -1, -1
 
 
 ##############################################################################
